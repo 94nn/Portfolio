@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Portfolio of Your Name, a software developer looking for an internship.">
+  <title>Your Name | Software Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- Floating background decorations -->
+  <span class="deco" aria-hidden="true">✦</span>
+  <span class="deco" aria-hidden="true">♥</span>
+  <span class="deco" aria-hidden="true">★</span>
+  <span class="deco" aria-hidden="true">✦</span>
+
+  <nav class="site-nav">
+    <div class="inner">
+      <a class="logo" href="#home"><b>YN</b> Your Name</a>
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="btn btn-primary btn-small" href="#contact">Let's Connect ✉</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero -->
+    <div class="hero-bg">
+      <div class="wrap">
+        <header class="hero" id="home">
+          <div>
+            <small>Hello, I'm</small>
+            <h1>Your Name <span class="heart" aria-hidden="true">♡</span></h1>
+            <div class="tagline">Coding · Problem Solving · Building Things</div>
+            <p>I'm a [Year] [Major] student at [University] who builds web apps and data tools, and I'm looking for a software internship.</p>
+            <div class="btns">
+              <a class="btn btn-primary" href="#projects">My Projects →</a>
+              <a class="btn" href="#">Download Résumé 📥</a>
+            </div>
+          </div>
+          <div class="avatar" aria-hidden="true">👩‍💻<i>✦</i><i>♥</i></div>
+        </header>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section id="about">
+      <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0,0H1440V40C1250,95 1050,0 780,20C520,40 300,95 0,25Z"/>
+      </svg>
+      <div class="wrap">
+        <h2>About Me <span class="sway" aria-hidden="true">♥</span></h2>
+        <p class="lead">I'm a curious developer who loves turning messy problems into clean, working software. Outside of class you'll find me debugging side projects, contributing to open source, or tinkering with a new framework. <em>[Replace with your own story.]</em></p>
+
+        <div class="grid">
+          <div class="card">
+            <div class="icon" aria-hidden="true">✦</div>
+            <h3>Problem Solver</h3>
+            <p>I break big problems into small, testable steps.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">☉</div>
+            <h3>Fast Learner</h3>
+            <p>I pick up new stacks quickly and ship early.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">♥</div>
+            <h3>Team Player</h3>
+            <p>I write readable code and clear pull requests.</p>
+          </div>
+        </div>
+
+        <div class="chips">
+          <b>Fun Facts ♡</b>
+          <span class="chip">🌙 Night Coder</span>
+          <span class="chip">☕ Coffee Addict</span>
+          <span class="chip">🎮 Gamer</span>
+          <span class="chip">📝 Note Taker</span>
+          <span class="chip">🐧 Linux Fan</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrolling ticker (filled by script.js) -->
+    <div class="ticker" aria-hidden="true"><div id="ticker"></div></div>
+
+    <!-- Skills (filled by script.js) -->
+    <section id="skills" class="alt">
+      <div class="wrap">
+        <h2>My Skills <span class="sway" aria-hidden="true">♥</span></h2>
+        <div class="grid grid-wide" id="skill-list"></div>
+        <div class="quote">Good code is kindness to your future self! ♡ ☺</div>
+      </div>
+    </section>
+
+    <!-- Projects (filled by script.js) -->
+    <section id="projects">
+      <div class="wrap">
+        <h2>Projects <span class="sway" aria-hidden="true">♥</span></h2>
+        <div class="tabs" id="project-tabs" role="group" aria-label="Filter projects"></div>
+        <div class="grid" id="project-list"></div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="alt">
+      <div class="wrap">
+        <h2>My Blog <span class="sway" aria-hidden="true">♥</span></h2>
+        <div class="grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">📘</div>
+            <h3>What I Learned Building My First API</h3>
+            <p>Lessons on routing, validation, and error handling.</p>
+            <p class="meta">📅 [Date] · ⏱ 5 min read</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🐛</div>
+            <h3>5 Debugging Habits That Save Hours</h3>
+            <p>Simple habits that make bugs easier to find.</p>
+            <p class="meta">📅 [Date] · ⏱ 6 min read</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">📊</div>
+            <h3>Cleaning Messy Data with pandas</h3>
+            <p>A practical walkthrough from raw CSV to insight.</p>
+            <p class="meta">📅 [Date] · ⏱ 7 min read</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="wrap">
+        <h2>Let's Connect! <span aria-hidden="true">✉</span></h2>
+        <p class="lead">Looking for an intern, or want to collaborate on something? Send me a message!</p>
+        <form id="contact-form">
+          <label class="sr-only" for="contact-name">Your name</label>
+          <input id="contact-name" name="name" placeholder="👤 Your name" autocomplete="name" required>
+
+          <label class="sr-only" for="contact-email">Your email</label>
+          <input id="contact-email" name="email" type="email" placeholder="✉ Your email" autocomplete="email" required>
+
+          <label class="sr-only" for="contact-message">Your message</label>
+          <textarea id="contact-message" name="message" placeholder="💬 Your message" required></textarea>
+
+          <button class="btn btn-primary" type="submit">Send Message ✉</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Thank you! ♡</h2>
+    <p>Let's build something great. ☺</p>
+    <div class="socials">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="mailto:you@email.com">Email</a>
+    </div>
+    <p class="copyright">© <span id="year">2026</span> Your Name</p>
+  </footer>
+</body>
+</html>
