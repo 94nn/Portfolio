@@ -3,6 +3,18 @@
 
 The portfolio will eventually include AI-powered features to reflect my focus as an AI student.
 
+## 🗺️ Roadmap
+
+- [x] Portfolio foundation
+- [x] Projects section
+- [x] Achievements section
+- [ ] AI Lab section
+- [ ] AI portfolio assistant
+- [ ] RAG-based portfolio knowledge base
+- [ ] Interactive AI visualization
+- [ ] AI-focused project filtering
+- [ ] Mobile optimization for AI features
+
 ### 🧠 AI Portfolio Assistant
 An interactive AI assistant that allows visitors to ask questions about my:
 - Projects
