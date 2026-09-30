@@ -22,12 +22,12 @@
 
   <nav class="site-nav">
     <div class="inner">
-      <a class="logo" href="#home"><b>YN</b> Your Name</a>
+      <a class="logo" href="#home"><b>CH</b> Wong Chjann Hann</a>
       <div class="menu">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
-        <a href="#blog">Blog</a>
+        <a href="#achievements">Achievements</a>
         <a href="#contact">Contact</a>
       </div>
       <a class="btn btn-primary btn-small" href="#contact">Let's Connect ✉</a>
@@ -37,19 +37,31 @@
   <main>
     <!-- Hero -->
     <div class="hero-bg">
+      <!-- A few deliberate details (decorative only) -->
+      <div class="hero-deco" aria-hidden="true">
+        <span class="hd hd-spark">✦</span>
+        <span class="hd hd-heart">♡</span>
+        <span class="hd hd-twinkle">✧</span>
+      </div>
       <div class="wrap">
         <header class="hero" id="home">
-          <div>
-            <small>Hello, I'm</small>
-            <h1>Your Name <span class="heart" aria-hidden="true">♡</span></h1>
-            <div class="tagline">Coding · Problem Solving · Building Things</div>
-            <p>I'm a [Year] [Major] student at [University] who builds web apps and data tools, and I'm looking for a software internship.</p>
+          <div class="hero-text">
+            <p class="eyebrow">Hello, I'm</p>
+            <h1>Chjann Hann <span class="heart" aria-hidden="true">♡</span></h1>
+            <p class="tagline"><span class="tagline-spark" aria-hidden="true">✦</span>Coding · Problem Solving · Building Things</p>
+            <p class="hero-intro">I'm a second-year Artificial Intelligence student at APU with a passion for developing data tools and AI-driven applications. I'm actively seeking an AI internship where I can apply machine learning concepts, contribute to impactful projects, and expand my technical skillset.</p>
             <div class="btns">
-              <a class="btn btn-primary" href="#projects">My Projects →</a>
-              <a class="btn" href="#">Download Résumé 📥</a>
+              <a class="btn btn-primary" href="#projects">My Projects <span class="btn-arrow" aria-hidden="true">→</span></a>
+              <a class="btn btn-ghost" href="#">Download Résumé <span aria-hidden="true">📥</span></a>
             </div>
           </div>
-          <div class="avatar" aria-hidden="true">👩‍💻<i>✦</i><i>♥</i></div>
+
+          <div class="hero-visual">
+            <span class="hero-orbit" aria-hidden="true"></span>
+            <span class="hero-orbit-dot" aria-hidden="true"></span>
+            <div class="avatar" aria-hidden="true"><span class="face">👩‍💻</span><i>✦</i><i>♥</i></div>
+            <p class="hero-badge"><span class="badge-dot" aria-hidden="true"></span>Open to opportunities <span aria-hidden="true">✦</span></p>
+          </div>
         </header>
       </div>
     </div>
@@ -57,37 +69,88 @@
     <!-- About -->
     <section id="about">
       <svg class="wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,0H1440V40C1250,95 1050,0 780,20C520,40 300,95 0,25Z"/>
+        <path class="wave-soft" d="M0,0H1440V52C1190,86 960,34 720,48C470,62 240,88 0,58Z"/>
+        <path class="wave-main" d="M0,0H1440V38C1190,72 960,22 720,36C470,50 240,74 0,44Z"/>
       </svg>
-      <div class="wrap">
-        <h2>About Me <span class="sway" aria-hidden="true">♥</span></h2>
-        <p class="lead">I'm a curious developer who loves turning messy problems into clean, working software. Outside of class you'll find me debugging side projects, contributing to open source, or tinkering with a new framework. <em>[Replace with your own story.]</em></p>
+      <!-- Background details (decorative only) -->
+      <div class="about-decor" aria-hidden="true">
+        <svg class="about-curve" viewBox="0 0 1440 600" preserveAspectRatio="none">
+          <path d="M-20,420 C260,300 420,520 760,380 C1040,265 1180,420 1460,300"/>
+        </svg>
+        <span class="about-ring about-ring-1"></span>
+        <span class="about-ring about-ring-2"></span>
+        <span class="about-spark about-spark-1">✦</span>
+        <span class="about-spark about-spark-2">✧</span>
+        <span class="about-spark about-spark-3">✦</span>
+      </div>
 
-        <div class="grid">
-          <div class="card">
-            <div class="icon" aria-hidden="true">✦</div>
-            <h3>Problem Solver</h3>
-            <p>I break big problems into small, testable steps.</p>
+      <div class="wrap">
+        <div class="about-intro">
+          <div class="about-text reveal">
+            <p class="eyebrow">Get to know me</p>
+            <h2>About Me <span class="sway" aria-hidden="true">♥</span></h2>
+            <p class="about-lead">Hi, I'm <strong>[Your Name]</strong>, a [Year] IT student at [University] who loves building things that are useful and a little bit delightful. I enjoy turning messy ideas into clean, working software, whether that's a small web app, a data project, or a tool that saves someone time.</p>
+            <p class="about-sub">When I'm not coding, you'll usually find me with a coffee, a half-finished side project, or a notebook full of ideas I want to try next.</p>
+            <p class="about-meta">
+              <span>📍 Based in Malaysia</span>
+              <span class="about-meta-sep" aria-hidden="true">•</span>
+              <span>💻 IT / Software Development</span>
+            </p>
           </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">☉</div>
-            <h3>Fast Learner</h3>
-            <p>I pick up new stacks quickly and ship early.</p>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">♥</div>
-            <h3>Team Player</h3>
-            <p>I write readable code and clear pull requests.</p>
-          </div>
+
+          <!-- Portrait: add your photo as images/about.jpg. Until then a monogram placeholder shows. -->
+          <figure class="about-portrait reveal">
+            <div class="portrait-backdrop" aria-hidden="true"></div>
+            <div class="portrait-frame">
+              <div class="portrait-placeholder" aria-hidden="true">
+                <span class="portrait-monogram">YN</span>
+                <span class="portrait-hint">Photo coming soon</span>
+              </div>
+              <img src="images/about.jpg" alt="Portrait of [Your Name]" width="340" height="425" loading="lazy" onerror="this.remove()">
+            </div>
+            <span class="portrait-spark portrait-spark-1" aria-hidden="true">✦</span>
+            <span class="portrait-spark portrait-spark-2" aria-hidden="true">✧</span>
+            <span class="portrait-ring" aria-hidden="true"></span>
+            <figcaption class="portrait-badge"><span class="badge-dot" aria-hidden="true"></span>Always curious <span aria-hidden="true">✦</span></figcaption>
+          </figure>
         </div>
 
-        <div class="chips">
-          <b>Fun Facts ♡</b>
-          <span class="chip">🌙 Night Coder</span>
-          <span class="chip">☕ Coffee Addict</span>
-          <span class="chip">🎮 Gamer</span>
-          <span class="chip">📝 Note Taker</span>
-          <span class="chip">🐧 Linux Fan</span>
+        <div class="trait-grid">
+          <article class="trait trait-rose reveal">
+            <div class="trait-top">
+              <span class="trait-icon" aria-hidden="true">🧩</span>
+              <span class="trait-num" aria-hidden="true">01</span>
+            </div>
+            <h3>Problem Solver</h3>
+            <p>I enjoy breaking complex problems into smaller, practical steps.</p>
+          </article>
+          <article class="trait trait-lav reveal">
+            <div class="trait-top">
+              <span class="trait-icon" aria-hidden="true">🌱</span>
+              <span class="trait-num" aria-hidden="true">02</span>
+            </div>
+            <h3>Fast Learner</h3>
+            <p>I pick up new tools quickly and enjoy experimenting with new ideas.</p>
+          </article>
+          <article class="trait trait-mint reveal">
+            <div class="trait-top">
+              <span class="trait-icon" aria-hidden="true">🤝</span>
+              <span class="trait-num" aria-hidden="true">03</span>
+            </div>
+            <h3>Team Player</h3>
+            <p>I value clear communication, collaboration, and building things together.</p>
+          </article>
+        </div>
+
+        <div class="about-interests reveal">
+          <p class="eyebrow">Currently into</p>
+          <ul class="chips">
+            <li class="chip">🌙 Night Coder</li>
+            <li class="chip">☕ Coffee</li>
+            <li class="chip">🎮 Gaming</li>
+            <li class="chip">📝 Note Taking</li>
+            <li class="chip">🐧 Linux</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -97,6 +160,36 @@
 
     <!-- Skills (filled by script.js) -->
     <section id="skills" class="alt">
+      <!-- Background composition (decorative only; styled in style.css under "Skills background") -->
+      <div class="skills-decor" aria-hidden="true">
+        <!-- large abstract shapes -->
+        <span class="sk-shape sk-ring-xl"></span>
+        <span class="sk-shape sk-blob-left"></span>
+        <span class="sk-shape sk-blob-top"></span>
+        <span class="sk-shape sk-ring-left"></span>
+        <svg class="sk-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
+          <path d="M0,140 C220,40 420,200 720,110 C1010,25 1200,170 1440,70"/>
+        </svg>
+        <!-- top band, beside the heading -->
+        <span class="sk-d sk-top-spark">✦</span>
+        <span class="sk-d sk-top-heart">♥</span>
+        <span class="sk-d sk-top-star">✧</span>
+        <span class="sk-dot sk-top-dot"></span>
+        <!-- left gutter -->
+        <span class="sk-d sk-gutter sk-left-heart">♡</span>
+        <span class="sk-d sk-gutter sk-left-spark">✦</span>
+        <span class="sk-circle sk-gutter sk-left-circle"></span>
+        <span class="sk-dot sk-gutter sk-left-dot"></span>
+        <!-- right gutter -->
+        <span class="sk-d sk-gutter sk-right-star">★</span>
+        <span class="sk-d sk-gutter sk-right-spark">✧</span>
+        <span class="sk-circle sk-gutter sk-right-circle"></span>
+        <span class="sk-dot sk-gutter sk-right-dot"></span>
+        <!-- bottom, beside the quote -->
+        <span class="sk-d sk-bottom-heart">♥</span>
+        <span class="sk-d sk-bottom-spark">✦</span>
+        <span class="sk-dot sk-bottom-dot"></span>
+      </div>
       <div class="wrap">
         <h2>My Skills <span class="sway" aria-hidden="true">♥</span></h2>
         <div class="grid grid-wide" id="skill-list"></div>
@@ -106,43 +199,80 @@
 
     <!-- Projects (filled by script.js) -->
     <section id="projects">
+      <!-- Interactive background: blobs + decorations drift with the cursor (script.js), glow follows it -->
+      <div class="projects-bg" aria-hidden="true">
+        <span class="pbg-blob pbg-pink"></span>
+        <span class="pbg-blob pbg-lav"></span>
+        <span class="pbg-blob pbg-mint"></span>
+        <span class="pbg-blob pbg-sun"></span>
+        <span class="pbg-grid"></span>
+        <span class="pbg-glow"></span>
+        <span class="pbg-d pbg-d1">✦</span>
+        <span class="pbg-d pbg-d2">♡</span>
+        <span class="pbg-d pbg-d3">✧</span>
+        <span class="pbg-d pbg-ring"></span>
+      </div>
+
       <div class="wrap">
-        <h2>Projects <span class="sway" aria-hidden="true">♥</span></h2>
-        <div class="tabs" id="project-tabs" role="group" aria-label="Filter projects"></div>
-        <div class="grid" id="project-list"></div>
+        <div class="projects-head">
+          <div class="projects-title reveal">
+            <p class="eyebrow">Selected work</p>
+            <h2>Projects <span class="sway" aria-hidden="true">♥</span></h2>
+            <p class="projects-intro">A few things I've designed and built, from web apps to data projects and small tools that make life easier.</p>
+          </div>
+          <div class="tabs reveal" id="project-tabs" role="group" aria-label="Filter projects"></div>
+        </div>
+        <div class="project-grid" id="project-list"></div>
       </div>
     </section>
 
-    <!-- Blog -->
-    <section id="blog" class="alt">
+    <!-- Achievements -->
+    <section id="achievements" class="alt">
+      <div class="section-decor" aria-hidden="true">
+        <span class="blob blob-1"></span><span class="blob blob-2"></span><span class="blob blob-3"></span>
+        <!-- top-right cluster -->
+        <span class="d d-big tr-big">♡</span>
+        <span class="d tr-heart">♥</span>
+        <span class="d tr-spark">✦</span>
+        <span class="d tr-star">★</span>
+        <span class="d d-dot tr-dot"></span>
+        <!-- bottom-left cluster -->
+        <span class="d d-big bl-big">✦</span>
+        <span class="d bl-heart">♥</span>
+        <span class="d bl-star">★</span>
+        <span class="d bl-spark">✧</span>
+        <span class="d d-dot bl-dot"></span>
+        <!-- far edges -->
+        <span class="d edge-l1">♡</span>
+        <span class="d edge-l2">✦</span>
+        <span class="d edge-r1">✧</span>
+        <span class="d d-dot edge-r2"></span>
+      </div>
+      <span class="ach-spot" aria-hidden="true"></span>
+
       <div class="wrap">
-        <h2>My Blog <span class="sway" aria-hidden="true">♥</span></h2>
-        <div class="grid">
-          <article class="card">
-            <div class="icon" aria-hidden="true">📘</div>
-            <h3>What I Learned Building My First API</h3>
-            <p>Lessons on routing, validation, and error handling.</p>
-            <p class="meta">📅 [Date] · ⏱ 5 min read</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">🐛</div>
-            <h3>5 Debugging Habits That Save Hours</h3>
-            <p>Simple habits that make bugs easier to find.</p>
-            <p class="meta">📅 [Date] · ⏱ 6 min read</p>
-          </article>
-          <article class="card">
-            <div class="icon" aria-hidden="true">📊</div>
-            <h3>Cleaning Messy Data with pandas</h3>
-            <p>A practical walkthrough from raw CSV to insight.</p>
-            <p class="meta">📅 [Date] · ⏱ 7 min read</p>
-          </article>
-        </div>
+        <header class="ach-head reveal">
+          <p class="eyebrow">Achievements · Milestones</p>
+          <h2>Little wins that <span class="ach-accent">meant a lot</span> <span class="sway" aria-hidden="true">♥</span></h2>
+          <p class="ach-intro">A few moments from my journey so far: competitions, classes, and certificates I worked hard for, and smiled about afterwards.</p>
+          <!-- tiny constellation beside the heading -->
+          <svg class="ach-constellation" viewBox="0 0 160 110" aria-hidden="true">
+            <path d="M14 80 L52 46 L92 62 L128 22 L148 50"/>
+            <circle cx="14" cy="80" r="3"/><circle cx="52" cy="46" r="4"/><circle cx="92" cy="62" r="3"/>
+            <circle cx="128" cy="22" r="5"/><circle cx="148" cy="50" r="2.5"/>
+          </svg>
+        </header>
+
+        <!-- Filled from ACHIEVEMENTS in script.js -->
+        <div id="ach-featured"></div>
+        <ol class="ach-timeline" id="ach-timeline" aria-label="Achievements timeline"></ol>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact">
-      <div class="wrap">
+      <div class="wrap contact-layout">
+        <div>
         <h2>Let's Connect! <span aria-hidden="true">✉</span></h2>
         <p class="lead">Looking for an intern, or want to collaborate on something? Send me a message!</p>
         <form id="contact-form">
@@ -157,6 +287,13 @@
 
           <button class="btn btn-primary" type="submit">Send Message ✉</button>
         </form>
+        </div>
+        <figure class="photo-card">
+          <div class="photo-frame">
+            <img src="images/contact.jpg" alt="Illustration of me waving" width="360" height="360" loading="lazy" onerror="this.remove()">
+          </div>
+          <figcaption class="photo-note">Thank you! <span aria-hidden="true">♡</span><br>Let's build something great. <span aria-hidden="true">☺</span></figcaption>
+        </figure>
       </div>
     </section>
   </main>
