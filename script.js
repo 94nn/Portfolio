@@ -789,6 +789,28 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
   }).observe(skillsSection);
 }
 
+// ===== Résumé button: always download the PDF (never open it in a tab) =====
+// Fetches the file and saves it through a temporary link, so browsers that like to
+// preview PDFs still download it. If fetching isn't possible, the normal link is used.
+document.querySelectorAll("a[download]").forEach(link => {
+  link.addEventListener("click", async e => {
+    e.preventDefault();
+    try {
+      const res = await fetch(link.href);
+      if (!res.ok) throw new Error(res.status);
+      const blob = new Blob([await res.blob()], { type: "application/octet-stream" });
+      const url = URL.createObjectURL(blob);
+      const temp = Object.assign(document.createElement("a"), { href: url, download: link.getAttribute("download") });
+      document.body.append(temp);
+      temp.click();
+      temp.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch {
+      location.href = link.href; // fallback
+    }
+  });
+});
+
 // ===== Contact form: sends the message straight to your inbox =====
 // Uses FormSubmit (formsubmit.co), a free form-to-email service, so visitors stay on the
 // page and no email app opens. The very first message triggers a one-time "Activate form"
