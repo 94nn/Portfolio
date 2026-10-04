@@ -1,35 +1,45 @@
 // ===== Edit your content here =====
-const CONTACT_EMAIL = "you@email.com";
+const CONTACT_EMAIL = "alinawch1101@gmail.com";
 
 const TICKER_WORDS = ["Code", "Build", "Debug", "Ship", "Repeat"];
 
-// color: any CSS color or theme variable (--pink, --lav, --sun, --mint, --sky, --peach)
+// Skills, shown in groups.
+// color: tint for the icon tile (--pink, --lav, --sun, --mint, --sky, --peach)
 const SKILLS = [
-  { icon: "💻", name: "Web Development", level: 90, color: "var(--pink)" },
-  { icon: "🐍", name: "Python", level: 90, color: "var(--mint)" },
-  { icon: "🗄️", name: "SQL & Databases", level: 80, color: "var(--lav)" },
-  { icon: "📊", name: "Data Analysis", level: 85, color: "var(--sun)" },
-  { icon: "🔧", name: "Git & Tools", level: 85, color: "var(--sky)" },
-  { icon: "🧠", name: "Algorithms", level: 80, color: "var(--peach)" },
+  { group: "Languages", icon: "🐍", name: "Python", color: "var(--mint)" },
+  { group: "Languages", icon: "✨", name: "JavaScript", color: "var(--sun)" },
+  { group: "Languages", icon: "💜", name: "C#", color: "var(--lav)" },
+  { group: "Languages", icon: "🐘", name: "PHP", color: "var(--sky)" },
+  { group: "Web", icon: "🎨", name: "HTML & CSS", color: "var(--pink)" },
+  { group: "Web", icon: "⚛️", name: "React", color: "var(--sky)" },
+  { group: "Web", icon: "🧱", name: "Laravel", color: "var(--peach)" },
+  { group: "Web", icon: "🍳", name: "ASP.NET Core", color: "var(--lav)" },
+  { group: "Tools", icon: "🗄️", name: "SQL & Databases", color: "var(--mint)" },
+  { group: "Tools", icon: "🌱", name: "Git & GitHub", color: "var(--pink)" },
 ];
 
 // category: used by the filter tabs · label: small text above the title
 // accent: card colour (lav, mint, sun, pink) · visual: illustration style (web, data, tool, design)
 // image: optional screenshot; it covers the illustration once the file exists
 // github / demo: leave "" to hide that icon
+// Projects from github.com/94nn
 const PROJECTS = [
-  { category: "Web", label: "Web App", accent: "lav", visual: "web", image: "images/project-1.jpg",
-    title: "Project One", description: "A web app that does [X] for [who], with accounts, search, and a clean responsive UI.",
-    tech: ["React", "Node.js", "MongoDB"], link: "#", linkText: "View project", github: "#", demo: "#", year: "2026" },
-  { category: "Data", label: "Data Analysis", accent: "mint", visual: "data", image: "images/project-2.jpg",
-    title: "Project Two", description: "Analysis of [dataset] that uncovered [insight], presented as an interactive notebook.",
-    tech: ["Python", "pandas", "Matplotlib"], link: "#", linkText: "View notebook", github: "#", demo: "", year: "2026" },
-  { category: "Tools", label: "CLI Tool", accent: "sun", visual: "tool", image: "images/project-3.jpg",
-    title: "Project Three", description: "A command-line tool that automates [task] and saves [time] every week.",
-    tech: ["Python", "Click", "GitHub Actions"], link: "#", linkText: "View code", github: "#", demo: "", year: "2025" },
-  { category: "Web", label: "Website", accent: "pink", visual: "design", image: "images/project-4.jpg",
-    title: "Project Four", description: "A responsive site with [feature], designed in Figma and deployed with CI/CD.",
-    tech: ["HTML", "CSS", "JavaScript"], link: "#", linkText: "View site", github: "#", demo: "#", year: "2025" },
+  { category: "Web", label: "Capstone · Web App", accent: "lav", visual: "web", image: "images/project-1.jpg",
+    title: "Gamified Maths Learning Platform", description: "Students learn maths through modules, quizzes and challenges, earning topic badges on a leaderboard. Includes admin analytics.",
+    tech: ["React", "Laravel", "PHP", "REST API"], link: "https://github.com/94nn/Capstone", linkText: "View on GitHub",
+    github: "https://github.com/94nn/Capstone", demo: "", year: "2026" },
+  { category: "Web", label: "Web App", accent: "pink", visual: "design", image: "images/project-2.jpg",
+    title: "My Cozy Cookbook", description: "A game-styled recipe app: save dishes with step-by-step instructions, then search, filter by category, edit and delete.",
+    tech: ["C#", "ASP.NET Core", "Razor Pages", "JavaScript"], link: "https://github.com/94nn/MyDigitalCookbook", linkText: "View on GitHub",
+    github: "https://github.com/94nn/MyDigitalCookbook", demo: "", year: "2026" },
+  { category: "Security", label: "Hackathon · Security", accent: "mint", visual: "data", image: "images/project-3.jpg",
+    title: "Omicron Owls Data Protector", description: "A data-protection site with Python tools for network monitoring, dark-web and breach searches, and email alerts.",
+    tech: ["Python", "HTML", "CSS"], link: "https://github.com/94nn/Omicron-Owls-Hackathon-2024", linkText: "View on GitHub",
+    github: "https://github.com/94nn/Omicron-Owls-Hackathon-2024", demo: "", year: "2024" },
+  { category: "Tools", label: "CLI App", accent: "sun", visual: "tool", image: "images/project-4.jpg",
+    title: "Papamove", description: "A CLI parcel delivery system: book motor, car or van deliveries across Malaysian states with route-based pricing.",
+    tech: ["Python", "CLI"], link: "https://github.com/94nn/papamove", linkText: "View on GitHub",
+    github: "https://github.com/94nn/papamove", demo: "", year: "2024" },
 ];
 
 // Achievements timeline (newest first). One item can be `featured: true`; it's shown large at the top.
@@ -61,28 +71,19 @@ const tickerText = TICKER_WORDS.map(w => `${w} ✦ `).join("").repeat(8);
 document.getElementById("ticker").textContent = tickerText + tickerText;
 
 // ===== Skills =====
-const skillList = document.getElementById("skill-list");
-skillList.innerHTML = SKILLS.map(s => `
-  <div class="card skill-card">
-    <div class="skill-head">
-      <span class="skill-icon" aria-hidden="true">${s.icon}</span>
-      <h3>${s.name}</h3>
+const skillGroups = [...new Set(SKILLS.map(s => s.group))];
+document.getElementById("skill-list").innerHTML = skillGroups.map(g => `
+  <div class="skill-group">
+    <p class="eyebrow">${g}</p>
+    <div class="skill-grid">${SKILLS.filter(s => s.group === g).map(s => `
+      <div class="card skill-card" style="--c:${s.color}">
+        <div class="skill-head">
+          <span class="skill-icon" aria-hidden="true">${s.icon}</span>
+          <h3>${s.name}</h3>
+        </div>
+      </div>`).join("")}
     </div>
-    <div class="skill-level">${s.level}%</div>
-    <div class="track"><div class="fill" data-level="${s.level}" style="background:${s.color}"></div></div>
   </div>`).join("");
-
-// Animate the bars the first time the section scrolls into view.
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.querySelectorAll(".fill").forEach(bar => {
-      bar.style.width = bar.dataset.level + "%";
-    });
-    skillObserver.unobserve(entry.target);
-  });
-});
-skillObserver.observe(skillList);
 
 // ===== Projects =====
 const REDUCED_MOTION = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -108,13 +109,13 @@ function projectVisual(type) {
         <div class="pv-bars"><span style="--h:38%"></span><span style="--h:62%"></span><span style="--h:48%"></span><span style="--h:80%"></span><span style="--h:66%"></span></div>
         <svg class="pv-trend" viewBox="0 0 200 80" preserveAspectRatio="none"><path d="M0,62 C30,58 40,30 70,36 C100,42 110,18 140,20 C165,22 180,8 200,6"/></svg>
       </div>
-      <div class="pv-layer pv-stat" style="--depth:14"><b>+24%</b><small>insight</small></div>
+      <div class="pv-layer pv-stat" style="--depth:14"><b>🛡️</b><small>protected</small></div>
       <span class="pv-layer pv-spark" style="--depth:20">✧</span>`,
     tool: `
       <div class="pv-layer pv-terminal" style="--depth:6">
         <div class="pv-bar"><i></i><i></i><i></i></div>
-        <code><span class="pv-prompt">$</span> tool run --fast</code>
-        <code class="pv-dim">✓ 128 files processed</code>
+        <code><span class="pv-prompt">$</span> python main.py</code>
+        <code class="pv-dim">✓ ready</code>
         <code><span class="pv-prompt">$</span> <span class="pv-caret"></span></code>
       </div>
       <div class="pv-layer pv-chip" style="--depth:16">{ }</div>
@@ -130,6 +131,9 @@ function projectVisual(type) {
   };
   return layers[type] || layers.web;
 }
+
+// External links (GitHub, demos) open in a new tab.
+const ext = url => /^https?:/.test(url) ? ' target="_blank" rel="noopener"' : "";
 
 function projectCard(p, i) {
   const num = String(i + 1).padStart(2, "0");
@@ -148,10 +152,10 @@ function projectCard(p, i) {
         <p>${p.description}</p>
         <ul class="pcard-tags" aria-label="Technologies">${(p.tech || []).map(t => `<li>${t}</li>`).join("")}</ul>
         <div class="pcard-foot">
-          <a class="pcard-cta" href="${p.link}">${p.linkText || "View project"} <span class="pcard-arrow" aria-hidden="true">→</span></a>
+          <a class="pcard-cta" href="${p.link}"${ext(p.link)}>${p.linkText || "View project"} <span class="pcard-arrow" aria-hidden="true">→</span></a>
           <span class="pcard-icons">
-            ${p.github ? `<a href="${p.github}" aria-label="${p.title} source code on GitHub">${ICON_GITHUB}</a>` : ""}
-            ${p.demo ? `<a href="${p.demo}" aria-label="${p.title} live demo">${ICON_DEMO}</a>` : ""}
+            ${p.github ? `<a href="${p.github}"${ext(p.github)} aria-label="${p.title} source code on GitHub">${ICON_GITHUB}</a>` : ""}
+            ${p.demo ? `<a href="${p.demo}"${ext(p.demo)} aria-label="${p.title} live demo">${ICON_DEMO}</a>` : ""}
           </span>
         </div>
       </div>
@@ -171,7 +175,7 @@ const SOON_CARD = `
     <div>
       <h3>More on the way</h3>
       <p>I'm always building something new. The next project is in progress, so check back soon.</p>
-      <a class="pcard-cta" href="#">See everything on GitHub <span class="pcard-arrow" aria-hidden="true">→</span></a>
+      <a class="pcard-cta" href="https://github.com/94nn" target="_blank" rel="noopener">See everything on GitHub <span class="pcard-arrow" aria-hidden="true">→</span></a>
     </div>
   </article>`;
 
@@ -572,15 +576,53 @@ if (matchMedia("(pointer: fine)").matches && !matchMedia("(prefers-reduced-motio
 
   document.documentElement.addEventListener("mouseleave", () => ring.classList.remove("visible"));
 
+  // ---- Silver text: text outside the cards turns silver inside the ring ----
+  // Each text run is wrapped in a .silver-text span whose background (clipped to the
+  // letters) is silver inside the ring's circle and the text's normal colour outside it.
+  const SILVER_TARGETS = [
+    ".hero .eyebrow", ".hero h1", ".hero .tagline", ".hero-intro",
+    "section h2", "section .eyebrow", ".lead", ".about-lead", ".about-sub", ".about-meta",
+    ".projects-intro", ".ach-intro", ".quote",
+    ".ach-featured h3", ".ach-featured .ach-date", ".ach-featured .ach-desc", ".ach-featured .ach-tags",
+    ".ach-moment h3", ".ach-moment .ach-date", ".ach-moment .ach-desc", ".ach-moment .ach-tags",
+    "footer h2", "footer > p",
+  ].join(",");
+  const SKIP = ".card, .pcard, .trait, .chip, .btn, a, button, .ach-featured-label, .hero-badge, .tab";
+
+  function silverize(el) {
+    for (const node of [...el.childNodes]) {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        const span = document.createElement("span");
+        span.className = "silver-text";
+        span.style.setProperty("--base", getComputedStyle(el).color);
+        node.replaceWith(span);
+        span.append(node);
+      } else if (node.nodeType === Node.ELEMENT_NODE && !node.matches(SKIP) && !node.classList.contains("silver-text")) {
+        silverize(node); // e.g. the pink heart / highlighted words keep their own colour outside the ring
+      }
+    }
+  }
+  document.querySelectorAll(SILVER_TARGETS).forEach(el => { if (!el.closest(SKIP)) silverize(el); });
+
   // Grow the ring over anything clickable.
   addEventListener("mouseover", e => {
     ring.classList.toggle("hovering", !!e.target.closest("a, button, .tab, input, textarea"));
   });
+  document.documentElement.addEventListener("mouseleave", () => {
+    document.body.style.setProperty("--cx", "-999px");
+  });
 
+  let lastX = 0, lastY = 0;
   (function follow() {
     ringX += (mouseX - ringX) * 0.18;
     ringY += (mouseY - ringY) * 0.18;
     ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+    // Tell the silver text where the ring is (only when it actually moved).
+    if (Math.abs(ringX - lastX) > 0.2 || Math.abs(ringY - lastY) > 0.2) {
+      document.body.style.setProperty("--cx", ringX.toFixed(1) + "px");
+      document.body.style.setProperty("--cy", ringY.toFixed(1) + "px");
+      lastX = ringX; lastY = ringY;
+    }
     requestAnimationFrame(follow);
   })();
 }
@@ -747,13 +789,63 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
   }).observe(skillsSection);
 }
 
-// ===== Contact form: opens the visitor's email app =====
-document.getElementById("contact-form").addEventListener("submit", e => {
+// ===== Contact form: sends the message straight to your inbox =====
+// Uses FormSubmit (formsubmit.co), a free form-to-email service, so visitors stay on the
+// page and no email app opens. The very first message triggers a one-time "Activate form"
+// email to CONTACT_EMAIL; after you click it, every message is delivered.
+const contactForm = document.getElementById("contact-form");
+const formStatus = document.getElementById("form-status");
+
+contactForm.addEventListener("submit", async e => {
   e.preventDefault();
-  const field = name => e.target.elements.namedItem(name).value;
-  const subject = encodeURIComponent(`Portfolio message from ${field("name")}`);
-  const body = encodeURIComponent(`${field("message")}\n\nFrom: ${field("email")}`);
-  location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+  const button = contactForm.querySelector('button[type="submit"]');
+  const field = name => contactForm.elements.namedItem(name).value.trim();
+
+  const show = (type, text) => { formStatus.className = `form-status is-${type}`; formStatus.textContent = text; };
+
+  // FormSubmit only accepts messages from a real website, not a file opened from disk.
+  if (location.protocol === "file:") {
+    show("error", "The form can only send from the published website (or a local server like Live Server), not from a file opened directly.");
+    return;
+  }
+
+  button.disabled = true;
+  button.textContent = "Sending…";
+  formStatus.className = "form-status";
+  formStatus.textContent = "";
+
+  try {
+    const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: field("name"),
+        email: field("email"),
+        message: field("message"),
+        _subject: `Portfolio message from ${field("name")}`,
+        _replyto: field("email"),   // hitting Reply in your inbox answers the visitor
+        _template: "table",
+        _captcha: "false",
+      }),
+    });
+    const data = await res.json().catch(() => ({}));
+
+    // One-time setup: FormSubmit holds the first message until the form is activated.
+    if (/activat/i.test(data.message || "")) {
+      show("info", `Almost ready: FormSubmit has emailed ${CONTACT_EMAIL} an "Activate Form" link. Once it's clicked, messages will arrive.`);
+      return;
+    }
+    if (!res.ok || String(data.success) !== "true") throw new Error(data.message || `HTTP ${res.status}`);
+
+    contactForm.reset();
+    show("success", "Thank you! Your message has been sent ♡ I'll get back to you soon.");
+  } catch (err) {
+    console.warn("Contact form:", err.message); // the exact reason, visible in DevTools → Console
+    show("error", `Sorry, something went wrong. Please try again, or email me at ${CONTACT_EMAIL}.`);
+  } finally {
+    button.disabled = false;
+    button.textContent = "Send Message ✉";
+  }
 });
 
 // ===== Footer year =====
