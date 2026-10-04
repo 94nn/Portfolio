@@ -283,15 +283,17 @@ section {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   align-items: center;
+  align-content: center;          /* content sits in the middle of the screen */
   gap: 56px;
-  padding: 96px 0 104px;
+  min-height: calc(100svh - var(--nav-h));
+  padding: 32px 0 72px;           /* a little more room below for the wave */
 }
 
 /* Text column */
 .hero-text .eyebrow { margin-bottom: 14px; }
 .hero h1 {
   margin: 0 0 18px;
-  font-size: clamp(46px, 7.4vw, 82px);
+  font-size: clamp(44px, 6vw, 76px);
   font-weight: 700;
   line-height: .98;
   letter-spacing: -.025em;
@@ -443,6 +445,18 @@ section {
               background .35s ease;
 }
 /* The emoji sits on its light spot with a soft contact shadow, like a placed illustration */
+/* Your photo fills the blob and follows its shape (including the hover morph) */
+.avatar-photo {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;   /* keeps faces in frame for most portraits */
+  border-radius: inherit;
+}
+.avatar i { z-index: 2; }
 .avatar .face {
   display: inline-block;
   filter: drop-shadow(0 14px 12px color-mix(in srgb, var(--ink) 22%, transparent));
@@ -880,28 +894,15 @@ section {
   transition: transform .3s cubic-bezier(.34, 1.56, .64, 1);
 }
 .skill-card:hover .skill-icon { transform: rotate(-8deg) scale(1.08); }
-.skill-level {
-  margin-top: 10px;
-  text-align: right;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--muted);
-}
-.track {
-  height: 12px;
-  margin-top: 4px;
-  overflow: hidden;
-  background: var(--bg);
-  border: 2px solid var(--line);
-  border-radius: 99px;
-}
-.skill-card .fill { border-right: 0; border-radius: 99px; }
-.fill {
-  width: 0;
-  height: 100%;
-  background: var(--pink);
-  border-right: 3px solid var(--line);
-  transition: width 1.2s ease;
+.skill-card .skill-icon { background: color-mix(in srgb, var(--c, var(--pink)) 35%, var(--card)); }
+
+/* Groups (Languages / Web / Tools), each a row of cards */
+.skill-groups { display: grid; gap: 30px; }
+.skill-group .eyebrow { margin-bottom: 14px; }
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
 }
 /* ---------- Skills background ----------
    1 base + soft multi-direction gradient · 2 corner glows (gradients, no blur filters)
@@ -1484,7 +1485,7 @@ section {
 .pcard p {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   overflow: hidden;
   margin: 0 0 16px;
   font-size: 15.5px;
@@ -2060,6 +2061,14 @@ input, textarea {
 }
 textarea { min-height: 120px; resize: vertical; }
 form .btn { justify-self: start; }
+form .btn:disabled { opacity: .7; cursor: wait; }
+
+/* Message under the Send button after submitting */
+.form-status { margin: 0; font-size: 15px; font-weight: 500; }
+.form-status:empty { display: none; }
+.form-status.is-success { color: #2f8a63; }
+.form-status.is-error { color: #c2410c; }
+.form-status.is-info { color: var(--rose); }
 
 /* Contact: heading + form on the left, photo on the right */
 .contact-layout {
@@ -2139,16 +2148,35 @@ footer p { margin: 6px 0; }
 .copyright { color: var(--muted); font-size: 14px; }
 .socials {
   display: flex;
+  flex-wrap: wrap;            /* wraps onto two lines on narrow phones */
   justify-content: center;
   gap: 10px;
   margin: 14px 0;
 }
+/* Round icon buttons */
 .socials a {
-  padding: 2px 14px;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
   background: var(--card);
   border: 3px solid var(--line);
-  border-radius: 99px;
-  font-weight: 600;
+  border-radius: 50%;
+  box-shadow: 3px 3px 0 var(--line);
+  color: var(--ink);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.socials svg { width: 21px; height: 21px; }
+.socials a:hover,
+.socials a:focus-visible {
+  transform: translateY(-3px) rotate(-6deg);
+  box-shadow: 4px 5px 0 var(--line);
+  background: var(--pink);
+}
+.socials a:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .socials a { transition: none; }
+  .socials a:hover, .socials a:focus-visible { transform: none; }
 }
 
 /* Visually hidden, still read by screen readers */
@@ -2182,6 +2210,19 @@ footer p { margin: 6px 0; }
   height: 54px;
   margin: -27px 0 0 -27px;
   background: color-mix(in srgb, var(--pink) 18%, transparent);
+}
+/* ---- Cursor colour text (spans added by script.js; class name kept from the first version) ----
+   The letters are painted with a fixed background: a bright pink → violet gradient inside
+   the ring's circle (--cx/--cy = ring centre, 15px = its inner radius), the normal colour
+   (--base) outside. */
+.silver-text {
+  background-image: radial-gradient(circle 15px at var(--cx, -999px) var(--cy, -999px),
+    #ff3d8b 0%, #e23cc4 45%, #8b4dff 99%, var(--base) 100%);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .cursor-sparkle {
   position: fixed;
@@ -2258,7 +2299,6 @@ footer p { margin: 6px 0; }
   .pcard:hover .pv-pointer, .pcard:hover .pv-gear { animation-play-state: paused; }
   .card:hover .icon { animation: none; }
   .avatar:hover .face, .avatar:hover i { animation: none; }
-  .fill { transition: none; }
   .sk-shape, .sk-d { animation: none; }
 }
 
@@ -2284,7 +2324,7 @@ footer p { margin: 6px 0; }
 }
 @media (max-width: 960px) {
   /* Hero stays two columns on tablets, just smaller */
-  .hero { gap: 36px; padding: 72px 0 110px; }
+  .hero { gap: 36px; padding: 32px 0 80px; }
   .hero-visual { max-width: 300px; }
   .avatar { font-size: 92px; }
   .hero-badge { left: -6%; font-size: 13.5px; padding: 8px 14px; }
@@ -2311,6 +2351,10 @@ footer p { margin: 6px 0; }
 /* ========== Mobile ========== */
 @media (max-width: 720px) {
   .project-grid { grid-template-columns: 1fr; }
+  .skill-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .skill-card { padding: 14px; }
+  .skill-head { gap: 10px; }
+  .skill-head h3 { font-size: 15.5px; }
   /* Achievements decorations on phones: smaller, tucked into the corners */
   .section-decor::before { background-size: 22px 22px; }
   .section-decor .tr-big { top: 2%; right: 2%; font-size: 40px; }
